@@ -20,16 +20,6 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'tested'
-            }
-        }
-        stage('Deploy'){
-            steps {
-                echo 'deployed'
-            }
-        }
     }
 
 }
