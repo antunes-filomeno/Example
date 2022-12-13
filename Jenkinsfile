@@ -10,7 +10,6 @@ pipeline {
             steps {
                 git 'https://github.com/antunes-filomeno/ExampleMaven.git'
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
-                echo 'built'
             }
 
             post {
