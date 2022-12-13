@@ -8,9 +8,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'javac Test.java'
+                git 'https://github.com/antunes-filomeno/ExampleMaven.git'
+                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
             }
 
+            post {
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
         }
     }
 
