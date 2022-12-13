@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/antunes-filomeno/ExampleMaven.git'
-                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+                sh 'javac Test.java'
             }
 
             post {
