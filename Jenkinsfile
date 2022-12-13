@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                javac 'Test.java'
+                sh 'javac Test.java'
                 echo 'built'
             }
 
