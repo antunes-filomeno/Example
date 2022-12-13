@@ -8,15 +8,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/antunes-filomeno/ExampleMaven.git'
-                sh 'mvn package exec:java'
+                sh 'javac Test.java'
+                echo 'Built'
             }
-
-            post {
-                success {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-                }
+        }
+        stage('Test') {
+            steps {
+                sh 'java Test'
+                echo 'Tested'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deployed'
             }
         }
     }
